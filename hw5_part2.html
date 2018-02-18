@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 5 Part 2</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script>
+
+	var stateArray = [
+		["AL", "Alabama", "Montgomery", 4779736],
+		["AK", "Alaska", "Juneau", 710231],
+		["AZ", "Arizona", "Phoenix", 6392017],
+		["AR", "Arkansas", "Little Rock", 2915918],
+		["CA", "California", "Sacramento", 37253956],
+		["CO", "Colorado", "Denver", 5029196]
+	]
+
+	function stateChecker() {
+
+		if ($("#inputForm").valid()) {
+				document.getElementById("error").style.display = "none";
+
+		var input = document.getElementById("userInput").value.toUpperCase();
+		for (i = 0; i <= stateArray.length; i++){
+			if (input == stateArray[i][0]) {
+				document.getElementById("stateAbbreviation").innerHTML = stateArray[i][0];
+				document.getElementById("stateName").innerHTML = stateArray[i][1];
+				document.getElementById("stateCapital").innerHTML = stateArray[i][2];
+				document.getElementById("statePopulation").innerHTML = (stateArray[i][3]).toLocaleString();
+			} else {
+				document.getElementById("error").style.display = "block";
+			}
+			
+		}	
+		}
+	}
+
+	$(document).ready(function(){
+		$("#inputForm").validate({
+			rules: {
+				state: "required"
+			},
+
+		});
+
+		$(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	});
+
+
+
+
+</script>
+</head>
+<body>
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 5 - Arrays</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html" style="padding: 5px; width: 25%; text-align: left">Part 1a</a> - Form Validation</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part1b.html" style="padding: 5px; width: 25%; text-align: left">Part 1b</a> - Event Handlers</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Two-Dimensional Census Data</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Array of Counters</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - One-Dimensional array for counting</li>
+		</ul>
+	</div>
+	<form id="inputForm">
+	<input id="userInput" name="state" type="text" maxlength="2" minlength="2" required>
+	</form>
+	<button onclick="stateChecker()" id="enterUserInput">Enter a state abbreviation or name (lower or upper case is ok)</button>
+	<br>
+	<br>
+	<table style="width:80%; text-align: center; margin-left: auto; margin-right: auto">
+		<tr>
+			<th style="width: 25%">State Abbr</th>
+			<th style="width: 25%">State Name</th>
+			<th style="width: 25%">Capital</th>
+			<th style="width: 25%">Population</th>
+		<tr>
+			<td id="stateAbbreviation" style="width: 25%"></td>
+			<td id="stateName" style="width: 25%"></td>
+			<td id="stateCapital" style="width: 25%"></td>
+			<td id="statePopulation" style="width: 25%"></td>
+	</table>
+	<div id="error" style="color: #ff0000; display:none">Please enter another state abbreviation.</div>
+
+
+
+</body>
+</html>

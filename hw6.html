@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 6 Part 1</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script>
+
+	$(document).ready(function() {
+	  $(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	});
+
+	var numArray = new Array(100)
+	
+
+	function stateChecker() {
+		$("#myForm").validate({
+		// Rules for each input item
+		rules: 
+		{
+		numberInput: { required: true, number: true, min: 1, max: 100}
+
+		}
+		}); 
+
+		if ($("#myForm").valid()) {
+
+		var x = (parseFloat(document.getElementById("userInput").value));
+
+		y = Math.floor( x * 10 + .5 ) / 10;
+		y = Math.floor( x * 100 + .5 ) / 100; 
+		y = Math.floor( x * 1000 + .5 ) / 1000; 
+		y = Math.floor( x * 10000 + .5 ) / 10000; 
+		y = Math.floor( x * 100000 + .5 ) / 100000; 
+
+		document.getElementById("a").innerHTML = x;
+		document.getElementById("b").innerHTML = Math.round(x);
+		document.getElementById("c").innerHTML = Math.round(Math.sqrt(x));
+		document.getElementById("d").innerHTML = (Math.floor( x * 10 + .5 ) / 10).toFixed(1);
+		document.getElementById("e").innerHTML = (Math.floor( x * 100 + .5 ) / 100).toFixed(2);
+		document.getElementById("f").innerHTML = (Math.floor( x * 1000 + .5 ) / 1000).toFixed(3);
+
+		}
+	}
+
+
+
+
+</script>
+</head>
+<body>
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 6 - Objects</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Math Object Methods</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - String Method - charAt</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Date Object</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - String Method - indexOf</li>
+		</ul>
+	</div>
+
+	<br>
+	<form id="myForm" onSubmit="stateChecker()">
+	<label for="userInput">Enter a number:</label><br>
+	<input id="userInput" name="numberInput" required><br>
+	</form>
+	<button onclick="stateChecker()">click me</button>
+	<br>
+	<br>
+	<table style="width:50%; text-align: center; margin-left: auto; margin-right: auto">
+		<tr>
+			<td style="width: 40%">Your Number:</td>
+			<td id="a" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">Nearest Integer:</td>
+			<td id="b" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">Square Root:</td>
+			<td id="c" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">Tenths Position:</td>
+			<td id="d" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">Hundredths Position:</td>
+			<td id="e" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">Thousandths Position:</td>
+			<td id="f" style="width: 40%"></td>
+		</tr>
+	</table>
+	<div>
+		<p id="error" style="display: none; color: #ff0000">Please enter a different number</p>
+	</div>
+
+
+</body>
+</html>

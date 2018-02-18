@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 6 Part 2</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script>
+
+	$(document).ready(function() {
+	  $(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	});
+
+	var charCounter = 0;
+	
+
+	function stateChecker(){
+		$("#myForm").validate({
+		// Rules for each input item
+		rules: 
+		{
+		numberInput: { required: true},
+		textInput: { required: true}
+		}
+		}); 
+
+		if ($("#myForm").valid()) {
+
+		var x = document.getElementById("textAreaInput").value;
+		var y = document.getElementById("userInput").value;
+
+		for (i = 0; i <= x.length; i++) {
+			var temp = x.charAt(i);
+
+			if (y == temp) {
+				charCounter = charCounter + 1;
+			};
+		};
+
+		if (charCounter >= 1) {
+			//display charCount
+			document.getElementById("a").innerHTML = charCounter;
+		} else {
+			//pop up window
+			var myWindow = window.open("", "MsgWindow", "top=900,left=500,width=300,height=100");
+			myWindow.document.write("<p>Search character not found in text string!</p><br>" + y);
+		};
+		}
+	}
+
+
+
+
+</script>
+</head>
+<body>
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 6 - Objects</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Math Object Methods</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - String Method - charAt</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Date Object</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - String Method - indexOf</li>
+		</ul>
+	</div>
+
+	<br>
+	<form id="myForm" onSubmit="stateChecker()">
+	<label for="textAreaInput">Enter a few lines of text:</label><br>
+	<textarea id="textAreaInput" name="textInput" required></textarea><br>
+	<label for="userInput">Enter a character to search:</label><br>
+	<input id="userInput" name="numberInput" maxlength="1" required><br>
+	</form>
+	<button onclick="stateChecker()">click me</button>
+	<br>
+
+	<br>
+	<table style="width:50%; text-align: center; margin-left: auto; margin-right: auto">
+		<tr>
+			<td style="width: 40%">Occurance of Your Character:</td>
+			<td id="a" style="width: 40%"></td>
+		</tr>
+	</table>
+	<div>
+		<p id="error" style="display: none; color: #ff0000">Please enter a different number</p>
+	</div>
+
+
+</body>
+</html>

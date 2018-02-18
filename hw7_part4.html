@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 7 Part 3</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+
+<!-- 1. Add latest jQuery and fancyBox files -->
+
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+<script type="text/javascript">
+
+	function stopFunction() {
+			document.getElementById("background").style.backgroundColor = "#9E1C00"
+	}	
+
+	function revertStopFunction() {
+			document.getElementById("background").style.backgroundColor = "#FFFFFF"
+	}
+
+
+ 
+	document.getElementById("stopF").onmouseover=stopFunction
+	document.getElementById("stopF").onmouseout=revertStopFunciton
+
+
+
+
+
+
+	function cautionFunction() {
+			document.getElementById("background").style.backgroundColor = "#F0F70E";
+	}
+
+	function goFunction() {
+			document.getElementById("background").style.backgroundColor = "#009E0C";
+	}
+
+	function noFunction() {
+			document.getElementById("background").style.backgroundColor = "#2B01FF";
+	}
+
+($(document).ready(function() {
+	$('.main').fancybox({
+		overlayColor: '#060',
+		overlayOpacity: .3,
+		transitionIn: 'elastic',
+		transitionOut: 'elastic',
+		easingIn: 'easeInSine',
+		easingOut: 'easeOutSine',
+		titlePosition: 'outside' ,		
+		cyclic: true
+	});
+}); // end ready)
+
+
+
+</script>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+.dropbtn {
+    color: #000000;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #2B01FF;
+}
+
+</style>
+</head>
+<body id="background">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 7 - Object Model and Miscellaneous jQuery</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - className Property</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Password Protection</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Navigation Bar</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - FancyBox</li>
+		</ul>
+	</div>
+
+
+<a data-fancybox="gallery" href="big_1.jpg"><img src="small_1.jpg"></a>
+<a data-fancybox="gallery" href="big_2.jpg"><img src="small_2.jpg"></a>
+
+
+<div id="navigation" style="width:100%; height 20px; background-color:#C4E1F7">
+		
+
+<div class="content">
+	<div class="main">
+		<h1>jQuery Gallery Slide Show - Decca</h1>
+		<div id="gallery">
+		<a href="https://hills.ccsf.edu/~tyin3/cnit133/images/diva.jpg" data-fancybox="gallery" title="Decca the Diva"><img src="https://hills.ccsf.edu/~tyin3/cnit133/images/todd.jpg" width="74" height="80" alt="golf balls"></a>
+		<a href="https://hills.ccsf.edu/~tyin3/cnit133/images/age4.jpg" data-fancybox="gallery" title="4 year old Decca and Sister"><img src="https://hills.ccsf.edu/~tyin3/cnit133/images/age4th1.jpg" width="73" height="80" alt="4 year old Decca and Sister"></a>
+		<a href="https://hills.ccsf.edu/~tyin3/cnit133/images/irr.jpg" data-fancybox="gallery" title="Irrepressible"><img src="https://hills.ccsf.edu/~tyin3/cnit133/images/irrepsm.jpg" width="75" height="80" alt="Irrepressible"></a>
+		<a href="https://hills.ccsf.edu/~tyin3/cnit133/images/decsmi.jpg" data-fancybox="gallery" title="Young Decca"><img src="https://hills.ccsf.edu/~tyin3/cnit133/images/decsmith1.jpg" width="65" height="80" alt="Young Decca"></a>
+		<a href="https://hills.ccsf.edu/~tyin3/cnit133/images/hit-the-road.gif" data-fancybox="gallery" title="Decca in England"><img src="https://hills.ccsf.edu/~tyin3/cnit133/images/hitth1.gif" width="77" height="80" alt="Decca in England"></a>
+		<a href="https://hills.ccsf.edu/~tyin3/cnit133/images/scrabble-cheating.gif" data-fancybox="gallery" title="Decca Playing Scrabble"><img src="https://hills.ccsf.edu/~tyin3/cnit133/images/scrabth1.gif" width="74" height="80" alt="Decca Playing Scrabble"></a> 	
+        <a href="https://hills.ccsf.edu/~tyin3/cnit133/images/ybob.jpg" data-fancybox="gallery" title="Young Bob"><img src="https://hills.ccsf.edu/~tyin3/cnit133/images/bob1th.jpg" width="69" height="80" alt="Young Bob"></a>
+		<a href="https://hills.ccsf.edu/~tyin3/cnit133/images/bob.gif" data-fancybox="gallery" title="Mature Bob?"><img src="https://hills.ccsf.edu/~tyin3/cnit133/images/bobth.gif" width="73" height="80" alt="Mature Bob"></a></div>
+
+          </div>
+</div>
+
+
+
+</div>
+
+
+</body>
+</html>

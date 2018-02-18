@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 4 Part 4</title>
+<style>
+	body{
+		text-align: center;
+	}
+	#salespersonAccounting{
+		text-align:center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #cccccc;
+	}
+	#salespersonInputs{
+		text-align: center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#salespersonResults{
+		text-align: right;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.resultsColumn2{
+		width: 25%;
+	}
+	.resultsColumn3{
+		width: 25%;
+	}
+	.resultsColumn4{
+		width: 25%;
+	}
+	.resultsColumn5{
+		width: 25%;
+	}
+
+	.inputColumn2 .inputColumn3 {
+		text-align: right;
+	}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".heading").css({"background-color":"#5DADE2", "text-align": "center"});
+		$(".resultsColumn1").css("text-align", "center"),
+		$(".even").css("background-color", "#D6EAF8"),
+		$(".odd").css("background-color", "#AED6F1")
+	});
+
+	function numValidator(x) {
+		if (isNaN(x) || x < 0 ){
+			document.getElementById("error").innerHTML = "Error: " + x + " is not a valid input";
+			return;			
+		}else{
+			return true;
+		}
+	}
+
+	function calculateAmount(row) {
+		var price;
+		var product = document.getElementById("productInput" + row).value;
+		var quantity = document.getElementById("quantityInput" + row).value;
+
+		switch (product) {
+			case "1": 
+				price = 2.98;
+				break;
+			case "2":
+				price = 4.50;
+				break;
+			case "3": 
+				price = 9.98;
+				break;
+			case "4":
+				price = 4.49;
+				break;
+			case "5": 
+				price = 6.87;
+				break;
+			default:
+				break;		
+		}
+
+		var amount = price * quantity;
+		document.getElementById("price" + row).innerHTML = "$" + price;
+		document.getElementById("amount" + row).innerHTML = "$" + (amount).toFixed(2);
+		totalAmount = totalAmount + amount;
+	}
+	var totalAmount = 0;
+
+	function calculateAllAmounts() {
+		calculateAmount(1);
+		calculateAmount(2);
+		calculateAmount(3);
+		calculateAmount(4);
+		calculateAmount(5);
+		document.getElementById("finalResult").innerHTML = "$" + totalAmount.toFixed(2);
+
+	}
+
+
+
+</script>
+
+
+</head>
+<body style="font: 18px Arial; padding: 20px; text-align: center">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 4 - Looping Statements</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Looping Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Employee Gross Pay</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Calculating Compound Interest</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Switch Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part5.html" style="padding: 5px; width: 25%; text-align: left">Part 5</a> - Creating Lists</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part6.html" style="padding: 5px; width: 25%; text-align: left">Part 6</a> - Twelve Days of Christmas</li>
+		</ul>
+	</div>
+<div id="salespersonAccounting">
+	<h1>Switch Statements</h1>
+	<div id="salespersonInputs">
+		<p style="color:red" id="error"></p>
+		<button onclick="calculateAllAmounts();">Calculate Amounts</button>
+	</div>
+	<br>
+	<div id="salespersonResults">
+		<table>
+			<tr class="heading">
+				<th class="resultsColumn1">Product #</th>
+				<th class="resultsColumn2">Quantity</th>
+				<th class="resultsColumn3">Price</th>
+				<th class="resultsColumn4">Amount</td>
+			</tr>
+			<tr class="even">
+				<td class="resultsColumn2" id="result1a"><input style="text-align: right" id="productInput1"></td>
+				<td class="resultsColumn3" id="result1b"><input style="text-align: right" id="quantityInput1"></td>
+				<td class="resultsColumn4" id="price1"></td>
+				<td class="resultsColumn5" id="amount1"></td>
+			</tr>
+			<tr class="odd">
+				<td class="resultsColumn2" id="result2a"><input style="text-align: right" id="productInput2"></td>
+				<td class="resultsColumn3" id="result2b"><input style="text-align: right" id="quantityInput2"></td>
+				<td class="resultsColumn4" id="price2"></td>
+				<td class="resultsColumn5" id="amount2"></td>
+			</tr>
+			<tr class="even">
+				<td class="resultsColumn2" id="result3a"><input style="text-align: right" id="productInput3"></td>
+				<td class="resultsColumn3" id="result3b"><input style="text-align: right" id="quantityInput3"></td>
+				<td class="resultsColumn4" id="price3"></td>
+				<td class="resultsColumn5" id="amount3"></td>
+			</tr>
+			<tr class="odd">
+				<td class="resultsColumn2" id="result4a"><input style="text-align: right" id="productInput4"></td>
+				<td class="resultsColumn3" id="result4b"><input style="text-align: right" id="quantityInput4"></td>
+				<td class="resultsColumn4" id="price4"></td>
+				<td class="resultsColumn5" id="amount4"></td>
+			</tr>
+			<tr class="even">
+				<td class="resultsColumn2" id="result5a"><input style="text-align: right" id="productInput5"></td>
+				<td class="resultsColumn3" id="result5b"><input style="text-align: right" id="quantityInput5"></td>
+				<td class="resultsColumn4" id="price5"></td>
+				<td class="resultsColumn5" id="amount5"></td>
+
+			</tr>
+			<tr class="odd">
+				<td colspan="3" style="text-align: center" id="result6c">Total Amount Sold</td>
+				<td class="resultsColumn5" id="finalResult"></td>
+			</tr>
+
+		</table>
+		<br>
+	</div>
+</div>
+</body>
+
+</html>

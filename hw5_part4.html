@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 5 Part 4</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script>
+
+	$(document).ready(function() {
+	  $(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	});
+
+	var numArray = new Array(100)
+	
+
+	function stateChecker() {
+		$("#myForm").validate({
+		// Rules for each input item
+		rules: 
+		{
+		numberInput: { required: true, number: true, min: 1, max: 100}
+
+		}
+		}); 
+
+		if ($("#myForm").valid()) {
+
+		var input = (parseInt(document.getElementById("userInput").value)) - 1;
+		if (Array[input]==null) {
+			Array[input] = 1
+			document.getElementById("a").innerHTML = (document.getElementById("a").innerHTML) + "  " + (document.getElementById("userInput").value)
+			document.getElementById("error").style.display = "none";
+		} else {
+			document.getElementById("error").style.display = "block";
+		}
+		}
+	}
+
+
+
+
+</script>
+</head>
+<body>
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 5 - Arrays</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html" style="padding: 5px; width: 25%; text-align: left">Part 1a</a> - Form Validation</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part1b.html" style="padding: 5px; width: 25%; text-align: left">Part 1b</a> - Event Handlers</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Two-Dimensional Census Data</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Array of Counters</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - One-Dimensional array for counting</li>
+		</ul>
+	</div>
+	<br>
+	<form id="myForm" onSubmit="stateChecker()">
+	<label for="userInput">Enter a number between 1 and 100:</label><br>
+	<input id="userInput" name="numberInput" required><br>
+	</form>
+	<button onclick="stateChecker()">click me</button>
+	<br>
+	<br>
+	<table style="width:50%; text-align: center; margin-left: auto; margin-right: auto">
+		<tr>
+			<td style="width: 40%">Numbers Entered</td>
+			<td id="a" style="width: 40%"></td>
+		</tr>
+	</table>
+	<div>
+		<p id="error" style="display: none; color: #ff0000">Please enter a different number</p>
+	</div>
+
+
+</body>
+</html>

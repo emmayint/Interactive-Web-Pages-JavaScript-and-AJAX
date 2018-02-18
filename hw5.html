@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 5 Part 1a</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#validationForm").validate({
+			rules: {
+				name: "required",
+				gender: "required",
+				rickRoll: "required",
+				month: "required"
+			}
+
+		});
+	});
+
+
+
+</script>
+</head>
+<body>
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 5 - Arrays</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html" style="padding: 5px; width: 25%; text-align: left">Part 1a</a> - Form Validation</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part1b.html" style="padding: 5px; width: 25%; text-align: left">Part 1b</a> - Event Handlers</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Two-Dimensional Census Data</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Array of Counters</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - One-Dimensional array for counting</li>
+		</ul>
+	</div>
+	<br>
+	<form id="validationForm" method="post" action="mailto:tingyin@gmail.com">
+			<br>
+			<legend>Please enter full name:</legend>
+			<p>
+				<label for="name">Full Name:</label>
+				<input name="name" minlength="2" type="text">
+			</p>
+			<legend>Please select one of the following:</legend>
+				<input type="radio" name="gender" value="male">
+				<label for="male">Male</label><br>
+				<input type="radio" name="gender" value="female">
+				<label for="male">Female</label><br>
+				<input type="radio" name="gender" value="other">
+				<label for="male">Other</label><br><br>
+			<legend>Please check all that you would never do:</legend>
+				<input type="checkbox" name="rickRoll" value="Give you up">
+				<label for="giveYouUp">Give you up</label><br>
+				<input type="checkbox" name="rickRoll" value="Let You Down">
+				<label for="letYouDown">Let You Down</label><br>
+				<input type="checkbox" name="rickRoll" value="Run Around">
+				<label for="runAround">Run Around</label><br>
+				<input type="checkbox" name="rickRoll" value="Desert You">
+				<label for="desertYou">Desert You</label><br>
+				<input type="checkbox" name="rickRoll" value="None of the Above">
+				<label for="noneOfTheAbove">None of the Above</label><br><br>
+			<legend>Please select the month:</legend>
+			<select name="month">
+				<option value="">---</option>
+				<option value="january">January</option>
+				<option value="february">February</option>
+				<option value="march">March</option>
+				<option value="april">April</option>
+				<option value="may">May</option>
+				<option value="june">June</option>
+				<option value="july">July</option>
+				<option value="august">August</option>
+				<option value="september">September</option>
+				<option value="october">October</option>
+				<option value="november">November</option>
+				<option value="december">December</option>
+			</select>
+			<br><br>
+			<input type="submit" value="Submit">
+	</form>
+	<div id="content">
+
+
+	</div>
+</body>
+</html>

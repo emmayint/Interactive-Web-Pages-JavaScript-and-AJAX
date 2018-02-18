@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>hw3</title>
+<style>
+	body{
+		text-align: center;
+	}
+	.gradeCalculator{
+		text-align:center;
+		width: 100%;
+	}
+	#panel, #flip {
+		width: 60%;
+		padding: 5px;
+		text-align: center;
+		background-color: #e5eecc;
+		border: solid 1px #c3c3c3;
+		margin-left: auto;
+		margin-right: auto; 
+	}
+
+	#panel {
+		display: none;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#flip").click(function(){
+			$("#panel").slideToggle("slow");
+		});
+	});
+
+
+	function numValidator(x) {
+		if (isNaN(x) || x < 0 || x > 100){
+			document.getElementById("error").innerHTML = "Error: " + x + " is not a valid input";
+			return;			
+		}else{
+			return true;
+		}
+	}
+
+	function calculateGrade(){
+		var inputHW = document.getElementById("homework").value;
+		var inputMid = document.getElementById("midterm").value;
+		var inputFin = document.getElementById("final").value;
+		var inputACR = document.getElementById("acr").value;
+
+		var valid1 = numValidator(inputHW);
+		var valid2 = numValidator(inputMid);
+		var valid3 = numValidator(inputFin);
+		var valid4 = numValidator(inputACR);
+
+		if (valid1 && valid2 && valid3 && valid4){
+
+			var finalGrade = Math.round((inputHW * .5) + (inputMid * .2) + (inputFin * .2) + (inputACR * .1));
+
+			if (90 <=finalGrade){
+				document.getElementById("result").innerHTML = "Final grade is " + finalGrade + "% A";
+			} else if (80 <= finalGrade){
+				document.getElementById("result").innerHTML ="Final grade is " + finalGrade + "% B";
+			} else if (70 <= finalGrade){
+				document.getElementById("result").innerHTML ="Final grade is " + finalGrade + "% C";
+			} else if (60 <= finalGrade){
+				document.getElementById("result").innerHTML = "Final grade is " + finalGrade + "% D. Student must retake the course.";
+			} else {
+				document.getElementById("result").innerHTML = "Final grade is " + finalGrade + "% F. Student must retake the course.";
+			}
+
+		}else{
+			return;
+		}
+	}
+
+</script>
+
+
+</head>
+<body style="font: 18px Arial; padding: 20px; text-align: center">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 3 - Functions</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Calculate student grades</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Salesperson accounting</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Department store credit limit</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Palindromes</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises5.html" style="padding: 5px; width: 25%; text-align: left">Part 5</a> - Celsius and Fahrenheit converter</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises6.html" style="padding: 5px; width: 25%; text-align: left">Part 6</a> - Multiplication problem solving</li>
+		</ul>
+	</div>
+<div class="gradeCalculator">
+	<h1>Student Grades</h1>
+
+	<div id="flip">Click to Show/Hide Instructions</div>
+	<div id="panel">The following webpage contains the heading, Student Grades, and Uses a script that inputs a student's homework average, mid-term exam score, final exam score, and ACR (all as integers). Calculate the student's final average according to the formula: <br><strong>final average = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * ACR)</strong></div>
+	<br>
+	<form style="width: 25%; text-align: right; margin-left: auto; margin-right: auto">
+		<label></label>
+		<span class="input">Homework: </span><input id="homework"><br>
+		<span class="input">Midterm: </span><input id="midterm"><br>
+		<span class="input">Final: </span><input id="final"><br>
+		<span class="input">ACR: </span><input id="acr"><br>
+	</form>
+	<p style="color:red" id="error"></p>
+	<button onclick="calculateGrade()">Calculate</button>
+</div>
+<div>
+	<p id="result"></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

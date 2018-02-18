@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HW2_part4</title>
+		<style>
+		</style>
+		<script type="text/javascript">
+			function docWrite() { 
+				document.write("<table border='1'><tr><td>Number</td><td>Square</td><td>Cube</td></tr>")
+			  	for (i = 1; i <7; i++) {
+			  		document.write("<tr><td align='right'>" + i + "</td>");
+			  		document.write("<td align='right'>" + i*i + "</td>");
+			  		document.write("<td align='right'>" + i*i*i + "</td></tr>");
+	  			}
+	  			document.write("</table>")
+			}
+
+			var table2 = "<tr><td align='right'>" + 7 + "</td>" +"<td align='right'>" + 49 + "</td>" + "<td align='right'>" + 343 + "</td></tr>" +
+			"<tr><td align='right'>" + 8 + "</td>" +"<td align='right'>" + 64 + "</td>" + "<td align='right'>" + 512 + "</td></tr>" +
+			"<tr><td align='right'>" + 9 + "</td>" +"<td align='right'>" + 81 + "</td>" + "<td align='right'>" + 729 + "</td></tr>" +
+			"<tr><td align='right'>" + 10 + "</td>" +"<td align='right'>" + 100 + "</td>" + "<td align='right'>" + 1000 + "</td></tr>"
+
+			function createTable2() {
+				for (i = 7; i < 11; i++) {
+					table2 = "<tr><td align='right'>" + i + "</td>" +"<td align='right'>" + i*i + "</td>" + "<td align='right'>" + i*i*i + "</td></tr>";
+					return table2;
+				}
+			}
+
+
+			function getElement() {
+				var newTable = document.getElementById("sevenToTen");
+				newTable.innerHTML = "<br><table border='1'><tr><td>Number</td><td>Square</td><td>Cube</td></tr>" + table2 + "</table>";
+			}
+		</script>
+	<head>
+<body style="font: 18px Arial; padding: 20px; text-align: center">
+	<div style="background-color:#99d5cf">
+		<nav>
+			HW1
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div align="center" style="border-width: 1px">
+		<h2>Homework 2 - Basic Operations Cover Page</h2>
+		<ul style="list-style: none; width: 60%; text-align: left">
+			<li class="dark"><a href="/HW2_part1.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Use document.write to display characters on a page</li>
+			<li class="light"><a href="/HW2_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Input integers and display sum, average, product, min and max</li>
+			<li class="dark"><a href="/HW2_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Input numbers on a form and fade the results via jQuery</li>
+			<li class="light"><a href="/HW2_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Display squares and cubes for 1-6 and then generate for 7-10</li>
+			<li class="dark"><a href="" style="padding: 5px; width: 25%; text-align: left">Extra Credit</a> - US Exchange Rate Tables</li>
+		</ul>
+	</div>
+		<div align="center">
+			<h2>Squares and Cubes 1-6</h2>
+			<div align="center">
+					<script type="text/javascript">
+						docWrite();
+					</script>
+			</div>
+			<br>
+			<h2>Squares and Cubes 7-10</h2>
+			<button onclick="getElement()">Click to display table</button>
+			<div id="sevenToTen">
+			</div>
+		</div>		
+	</body>
+</html>

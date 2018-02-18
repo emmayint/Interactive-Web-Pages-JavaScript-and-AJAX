@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 4 Part 3</title>
+<style>
+	body{
+		text-align: center;
+	}
+	#salespersonAccounting{
+		text-align:center;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #cccccc;
+	}
+	#salespersonInputs{
+		text-align: center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#salespersonResults{
+		text-align: right;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.resultsColumn1{
+		width: 8%;
+	}
+	.resultsColumn2{
+		width: 8%;
+	}
+	.resultsColumn3{
+		width: 8%;
+	}
+	.resultsColumn4{
+		width: 8%;
+	}
+	.resultsColumn5{
+		width: 8%;
+	}
+	.resultsColumn6{
+		width: 8%;
+	}
+	.resultsColumn7{
+		width: 8%;
+	}
+
+	.inputColumn2 .inputColumn3 {
+		text-align: right;
+	}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".heading").css({"background-color":"#5DADE2", "text-align": "center"});
+		$(".resultsColumn1").css("text-align", "center"),
+		$(".even").css("background-color", "#D6EAF8"),
+		$(".odd").css("background-color", "#AED6F1")
+	});
+
+	function numValidator(x) {
+		if (isNaN(x) || x < 0 ){
+			document.getElementById("error").innerHTML = "Error: " + x + " is not a valid input";
+			return;			
+		}else{
+			return true;
+		}
+	}
+
+	function calculateInterest(x) {
+		var input = parseInt(document.getElementById("userInput").value);
+		var valid1 = numValidator(input);
+
+		if (valid1){
+			function compoundInterest(r, column) {
+				var principle = parseInt(document.getElementById("userInput").value);
+				var rate = r;
+				var column = column;
+				for (i = 1; i <= 10; i++) {
+					var principle = principle * (Math.pow((1 + r), i));
+					document.getElementById("result" + i + column).innerHTML = principle.toFixed(2);
+				}
+			}
+
+			compoundInterest(.05, "a");
+			compoundInterest(.06, "b");
+			compoundInterest(.07, "c");
+			compoundInterest(.08, "d");
+			compoundInterest(.09, "e");
+			compoundInterest(.10, "f");
+		} else {
+			return;
+		}
+	}
+</script>
+
+
+</head>
+<body style="font: 18px Arial; padding: 20px; text-align: center">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 4 - Looping Statements</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Looping Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Employee Gross Pay</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Calculating Compound Interest</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Switch Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part5.html" style="padding: 5px; width: 25%; text-align: left">Part 5</a> - Creating Lists</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part6.html" style="padding: 5px; width: 25%; text-align: left">Part 6</a> - Twelve Days of Christmas</li>
+		</ul>
+	</div>
+<div id="salespersonAccounting">
+	<h1>Calculating Compound Interest</h1>
+	<div id="salespersonInputs">
+		Input principle (initial deposit amount): <input style="text-align: right" id="userInput"></input><br>
+
+
+		<p style="color:red" id="error"></p>
+		<button onclick="calculateInterest();">Calculate Interest</button>
+	</div>
+	<br>
+	<div id="salespersonResults">
+		<table>
+			<tr class="heading">
+				<th class="resultsColumn1"></th>
+				<th class="resultsColumn2">5% Interest</th>
+				<th class="resultsColumn3">6% Interest</th>
+				<th class="resultsColumn4">7% Interest</td>
+				<th class="resultsColumn5">8% Interest</td>
+				<th class="resultsColumn6">9% Interest</td>
+				<th class="resultsColumn7">10% Interest</td>
+			</tr>
+			<tr class="even">
+				<td class="resultsColumn1">Year 1: </td>
+				<td class="resultsColumn2" id="result1a"></td>
+				<td class="resultsColumn3" id="result1b"></td>
+				<td class="resultsColumn4" id="result1c"></td>
+				<td class="resultsColumn5" id="result1d"></td>
+				<td class="resultsColumn6" id="result1e"></td>
+				<td class="resultsColumn7" id="result1f"></td>
+			</tr>
+			<tr class="odd">
+				<td class="resultsColumn1">Year 2: </td>
+				<td class="resultsColumn2" id="result2a"></td>
+				<td class="resultsColumn3" id="result2b"></td>
+				<td class="resultsColumn4" id="result2c"></td>
+				<td class="resultsColumn5" id="result2d"></td>
+				<td class="resultsColumn6" id="result2e"></td>
+				<td class="resultsColumn7" id="result2f"></td>
+			</tr>
+			<tr class="even">
+				<td class="resultsColumn1">Year 3: </td>
+				<td class="resultsColumn2" id="result3a"></td>
+				<td class="resultsColumn3" id="result3b"></td>
+				<td class="resultsColumn4" id="result3c"></td>
+				<td class="resultsColumn5" id="result3d"></td>
+				<td class="resultsColumn6" id="result3e"></td>
+				<td class="resultsColumn7" id="result3f"></td>
+			</tr>
+			<tr class="odd">
+				<td class="resultsColumn1">Year 4: </td>
+				<td class="resultsColumn2" id="result4a"></td>
+				<td class="resultsColumn3" id="result4b"></td>
+				<td class="resultsColumn4" id="result4c"></td>
+				<td class="resultsColumn5" id="result4d"></td>
+				<td class="resultsColumn6" id="result4e"></td>
+				<td class="resultsColumn7" id="result4f"></td>
+			</tr>
+			<tr class="even">
+				<td class="resultsColumn1">Year 5: </td>
+				<td class="resultsColumn2" id="result5a"></td>
+				<td class="resultsColumn3" id="result5b"></td>
+				<td class="resultsColumn4" id="result5c"></td>
+				<td class="resultsColumn5" id="result5d"></td>
+				<td class="resultsColumn6" id="result5e"></td>
+				<td class="resultsColumn7" id="result5f"></td>
+			</tr>
+			<tr class="odd">
+				<td class="resultsColumn1">Year 6: </td>
+				<td class="resultsColumn2" id="result6a"></td>
+				<td class="resultsColumn3" id="result6b"></td>
+				<td class="resultsColumn4" id="result6c"></td>
+				<td class="resultsColumn5" id="result6d"></td>
+				<td class="resultsColumn6" id="result6e"></td>
+				<td class="resultsColumn7" id="result6f"></td>
+			</tr>
+			<tr class="even">
+				<td class="resultsColumn1">Year 7: </td>
+				<td class="resultsColumn2" id="result7a"></td>
+				<td class="resultsColumn3" id="result7b"></td>
+				<td class="resultsColumn4" id="result7c"></td>
+				<td class="resultsColumn5" id="result7d"></td>
+				<td class="resultsColumn6" id="result7e"></td>
+				<td class="resultsColumn7" id="result7f"></td>
+			</tr>
+			<tr class="odd">
+				<td class="resultsColumn1">Year 8: </td>
+				<td class="resultsColumn2" id="result8a"></td>
+				<td class="resultsColumn3" id="result8b"></td>
+				<td class="resultsColumn4" id="result8c"></td>
+				<td class="resultsColumn5" id="result8d"></td>
+				<td class="resultsColumn6" id="result8e"></td>
+				<td class="resultsColumn7" id="result8f"></td>
+			</tr>
+			<tr class="even">
+				<td class="resultsColumn1">Year 9: </td>
+				<td class="resultsColumn2" id="result9a"></td>
+				<td class="resultsColumn3" id="result9b"></td>
+				<td class="resultsColumn4" id="result9c"></td>
+				<td class="resultsColumn5" id="result9d"></td>
+				<td class="resultsColumn6" id="result9e"></td>
+				<td class="resultsColumn7" id="result9f"></td>
+			</tr>
+			<tr class="odd">
+				<td class="resultsColumn1">Year 10: </td>
+				<td class="resultsColumn2" id="result10a"></td>
+				<td class="resultsColumn3" id="result10b"></td>
+				<td class="resultsColumn4" id="result10c"></td>
+				<td class="resultsColumn5" id="result10d"></td>
+				<td class="resultsColumn6" id="result10e"></td>
+				<td class="resultsColumn7" id="result10f"></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</body>
+
+</html>

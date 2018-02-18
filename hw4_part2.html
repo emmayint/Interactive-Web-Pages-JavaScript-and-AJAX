@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 4 Part 2</title>
+<style>
+	body{
+		text-align: center;
+	}
+	#salespersonAccounting{
+		text-align:center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #cccccc;
+	}
+	#salespersonInputs{
+		text-align: center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#salespersonResults{
+		text-align: right;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.resultsColumn1{
+		width: 25%;
+	}
+	.resultsColumn2{
+		width: 25%;
+	}
+	.resultsColumn3{
+		width: 25%;
+	}
+	.resultsColumn4{
+		width: 25%;
+	}
+	.inputColumn2 .inputColumn3 {
+		text-align: right;
+	}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+	function numValidator(x) {
+		if (isNaN(x) || x < 0 ){
+			document.getElementById("error").innerHTML = "Error: " + x + " is not a valid input";
+			return;			
+		}else{
+			return true;
+		}
+	}
+
+
+
+	function calculateGrossPay(x) {
+
+		function grossPay(x) {
+			if (x <= 40) {
+				return x * rate;
+			} else {
+				return (40 * rate) + ((x - 40) * (rate * 1.5))
+			}
+		}
+
+		for (i = 1; i < 7; i++) {
+
+			var hours = parseInt(document.getElementById("hours" + i).value );
+			var rate = parseInt(document.getElementById("rate" + i).value );
+			var valid1 = numValidator(hours);
+			var valid2 = numValidator(rate);
+
+			if (valid1 && valid2) {
+				document.getElementById("result" + i + "a").innerHTML = hours;
+				document.getElementById("result" + i + "b").innerHTML = rate;
+				document.getElementById("result" + i + "c").innerHTML = grossPay(hours).toFixed(2);				
+			} else {
+				return;
+			}
+
+		}
+
+	}
+
+
+
+</script>
+
+
+</head>
+<body style="font: 18px Arial; padding: 20px; text-align: center">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 4 - Looping Statements</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Looping Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Employee Gross Pay</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Calculating Compound Interest</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Switch Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part5.html" style="padding: 5px; width: 25%; text-align: left">Part 5</a> - Creating Lists</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part6.html" style="padding: 5px; width: 25%; text-align: left">Part 6</a> - Twelve Days of Christmas</li>
+		</ul>
+	</div>
+<div id="salespersonAccounting">
+	<h1>Employee Gross Pay</h1>
+	<div id="salespersonInputs">
+		<table>
+			<tr>
+				<th class="inputColumn1">Employee</th>
+				<th class="inputColumn2">Hours Worked</th>
+				<th class="inputColumn3">Hourly Rate</th>
+			</tr>
+			<tr>
+				<td class="inputColumn1">1: </td>
+				<td class="inputColumn2"><input style="text-align: right" id="hours1"></td>
+				<td class="inputColumn3"><input style="text-align: right" id="rate1"></td>
+			</tr>
+			<tr>
+				<td class="inputColumn1">2: </td>
+				<td class="inputColumn2"><input style="text-align: right" id="hours2"></td>
+				<td class="inputColumn3"><input style="text-align: right" id="rate2"></td>
+			</tr>
+			<tr>
+				<td class="inputColumn1">3: </td>
+				<td class="inputColumn2"><input style="text-align: right" id="hours3"></td>
+				<td class="inputColumn3"><input style="text-align: right" id="rate3"></td>
+			</tr>
+			<tr>
+				<td class="inputColumn1">4: </td>
+				<td class="inputColumn2"><input style="text-align: right" id="hours4"></td>
+				<td class="inputColumn3"><input style="text-align: right" id="rate4"></td>
+			</tr>
+			<tr>
+				<td class="inputColumn1">5: </td>
+				<td class="inputColumn2"><input style="text-align: right" id="hours5"></td>
+				<td class="inputColumn3"><input style="text-align: right" id="rate5"></td>
+			</tr>
+			<tr>
+				<td class="inputColumn1">6: </td>
+				<td class="inputColumn2"><input style="text-align: right" id="hours6"></td>
+				<td class="inputColumn3"><input style="text-align: right" id="rate6"></td>
+			</tr>
+		</table>
+
+		<p style="color:red" id="error"></p>
+		<button onclick="calculateGrossPay();">Calculate</button>
+	</div>
+	<br>
+	<div id="salespersonResults">
+		<table>
+			<tr>
+				<th class="resultsColumn1">Employee</th>
+				<th class="resultsColumn2">Hours Worked</th>
+				<th class="resultsColumn3">Hourly Rate</th>
+				<th class="resultsColumn4">Gross Pay</th>
+			</tr>
+			<tr>
+				<td class="resultsColumn1">Employee 1: </td>
+				<td class="resultsColumn2" id="result1a"></td>
+				<td class="resultsColumn3" id="result1b"></td>
+				<td class="resultsColumn4" id="result1c"></td>
+			</tr>
+			<tr>
+				<td class="resultsColumn1">Employee 2: </td>
+				<td class="resultsColumn2" id="result2a"></td>
+				<td class="resultsColumn3" id="result2b"></td>
+				<td class="resultsColumn4" id="result2c"></td>
+			</tr>
+			<tr>
+				<td class="resultsColumn1">Employee 3: </td>
+				<td class="resultsColumn2" id="result3a"></td>
+				<td class="resultsColumn3" id="result3b"></td>
+				<td class="resultsColumn4" id="result3c"></td>
+			</tr>
+			<tr>
+				<td class="resultsColumn1">Employee 4: </td>
+				<td class="resultsColumn2" id="result4a"></td>
+				<td class="resultsColumn3" id="result4b"></td>
+				<td class="resultsColumn4" id="result4c"></td>
+			</tr>
+			<tr>
+				<td class="resultsColumn1">Employee 5: </td>
+				<td class="resultsColumn2" id="result5a"></td>
+				<td class="resultsColumn3" id="result5b"></td>
+				<td class="resultsColumn4" id="result5c"></td>
+			</tr>
+			<tr>
+				<td class="resultsColumn1">Employee 6: </td>
+				<td class="resultsColumn2" id="result6a"></td>
+				<td class="resultsColumn3" id="result6b"></td>
+				<td class="resultsColumn4" id="result6c"></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+	<title>CNIT 133 Homework 2</title>
+
+</head>
+<body style="font: 18px Arial; padding: 20px; text-align: center">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 2 - Basic Operations Cover Page</h2>
+		<ul style="list-style: none; width: 60%; text-align: left">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part1.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Use document.write to display characters on a page</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Input integers and display sum, average, product, min and max</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Input numbers on a form and fade the results via jQuery</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Display squares and cubes for 1-6 and then generate for 7-10</li>
+			<li class="dark"><a href="" style="padding: 5px; width: 25%; text-align: left">Extra Credit</a> - US Exchange Rate Tables</li>
+		</ul>
+	</div>
+	<div style="text-align: center; border-width: 1px">
+		<p>Please enter numbers in the fields below:</p>
+		<form>
+			integer 1: <input type="number" id="input1"><br>
+			integer 2: <input type="number" id="input2"><br>
+			integer 3: <input type="number" id="input3"><br>
+			<br>
+			<button onclick="calcValue()">Submit</button>
+		</form>
+	</div>
+		<div style="vertical-align: bottom;">
+			<a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fhills.ccsf.edu%2F~tyin3%2Fcnit133%2Findex.html&profile=css3&usermedium=all&warning=1&vextwarning=&lang=en">
+				<img src="https://hills.ccsf.edu/~tyin3/cnit133/images/css_logo.png" alt="CSS validation logo" style="max-width: 150px">
+			</a>
+			<a href="https://html5.validator.nu/?doc=https%3A%2F%2Fhills.ccsf.edu%2F~tyin3%2Fcnit133%2Findex.html">
+				<img src="https://hills.ccsf.edu/~tyin3/cnit133/images/HTML5_Logo_256.png" alt="html5 validation logo" style="width: 50px">
+			</a>
+		</div>
+<script>
+		function calcValue() {
+			var int1 = parseInt(document.getElementById("input1").value,10);
+			var int2 = parseInt(document.getElementById("input2").value,10);
+			var int3 = parseInt(document.getElementById("input3").value,10);
+			var intArray = [int1, int2, int3];
+			var sum = int1 + int2 + int3;
+			var avg = sum / 3;
+			var prod = int1 * int2 * int3;
+			var max = Math.max.apply(null, intArray);
+			var min = Math.min.apply(null, intArray);
+			alert("sum: " + sum + "\n" + "average: " + avg + "\n" + "product: " + prod + "\n" + "max: " + max + "\n" + "min: " + min);
+		};
+</script>
+
+</body>

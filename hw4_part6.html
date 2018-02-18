@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 4 Part 6</title>
+<style>
+	body{
+		text-align: center;
+	}
+	#salespersonAccounting{
+		text-align:center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #cccccc;
+	}
+	#salespersonInputs{
+		text-align: center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#salespersonResults{
+		text-align: right;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.resultsColumn1{
+		width: 10%;
+	}
+	.resultsColumn2{
+		width: 20%;
+	}
+	.resultsColumn3{
+		width: 35%;
+	}
+	.resultsColumn4{
+		width: 35%;
+	}
+  .ui-tooltip, .arrow:after {
+    background: black;
+    border: 2px solid white;
+  }
+  .ui-tooltip {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+    font: bold 14px "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+    box-shadow: 0 0 7px black;
+  }
+	#panel, #flip {
+		width: 60%;
+		padding: 5px;
+		text-align: center;
+		background-color: #e5eecc;
+		border: solid 1px #c3c3c3;
+		margin-left: auto;
+		margin-right: auto; 
+	}
+
+	#panel {
+		display: none;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$( function() {
+	$( document ).tooltip();
+	} );
+</script>
+<script>
+var day;
+var dayIntro = "On the "
+var dayEnding = " day of Christmas my true love sent to me: <br>"
+var lyrics;
+//switch statement determings the day: on the first day of christmas...
+	function christmasDay(x){
+		switch (x) {
+			case 1: 
+				day = dayIntro + "first" + dayEnding;
+				lyrics = day;
+				day = null;
+				break;
+			case 2:
+				day = dayIntro + "second" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 3: 
+				day = dayIntro + "third" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 4: 
+				day = dayIntro + "fourth" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 5: 
+				day = dayIntro + "fifth" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 6: 
+				day = dayIntro + "sixth" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 7: 
+				day = dayIntro + "seventh" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 8: 
+				day = dayIntro + "eighth" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 9: 
+				day = dayIntro + "ninth" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 10: 
+				day = dayIntro + "tenth" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 11: 
+				day = dayIntro + "eleventh" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			case 12: 
+				day = dayIntro + "twelfth" + dayEnding;
+				lyrics = lyrics + day;
+				day = null;
+				break;
+			default:
+				break;	
+		}
+	}
+ 
+	//switch statement returns the rest of the verse
+	function christmasVerse(x){
+		switch (x) {
+			case 1: 
+				lyrics = lyrics + "A Partridge in a Pear Tree <br><br>";
+				break;
+			case 2: 
+				lyrics = lyrics + "and A Partridge in a Pear Tree<br><br>";
+				break;
+			case 3:
+				lyrics = lyrics + "Two Turtle Doves<br>";
+				break;
+			case 4: 
+				lyrics = lyrics + "Three French Hens<br>"
+				break;
+			case 5: 
+				lyrics = lyrics + "Four Calling Birds<br>";
+				break;
+			case 6: 
+				lyrics = lyrics + "Five Golden Rings<br>";
+				break;
+			case 7:
+				lyrics = lyrics + "Six Geese a Laying<br>";
+				break;
+			case 8: 
+				lyrics = lyrics + "Seven Swans a Swimming<br>"
+				break;
+			case 9: 
+				lyrics = lyrics + "Eight Maids a Milking<br>";
+				break;
+			case 10: 
+				lyrics = lyrics + "Nine Ladies Dancing<br>";
+				break;
+			case 11:
+				lyrics = lyrics + "Ten Lords a Leaping<br>";
+				break;
+			case 12: 
+				lyrics = lyrics + "Eleven Pipers Piping<br>"
+				break;
+			case 13: 
+				lyrics = lyrics + "Twelve Drummers Drumming<br>";
+				break;
+			default:
+				break;	
+		}
+	}
+
+	function verseLoop(n) {
+
+		for (i = n; i > 1; i--){
+			christmasVerse(i);
+		}
+	}
+
+//onclick initializer
+	function writeLyrics(){
+		christmasDay(1);
+		christmasVerse(1);
+
+		christmasDay(2);
+		verseLoop(3);
+
+		christmasDay(3);
+		verseLoop(4);
+
+		christmasDay(4);
+		verseLoop(5);
+
+		christmasDay(5);
+		verseLoop(6);
+
+		christmasDay(6);
+		verseLoop(7);
+
+		christmasDay(7);
+		verseLoop(8);
+
+		christmasDay(8);
+		verseLoop(9);
+
+		christmasDay(9);
+		verseLoop(10);
+
+		christmasDay(10);
+		verseLoop(11);
+
+		christmasDay(11);
+		verseLoop(12);
+
+		christmasDay(12);
+		verseLoop(13);
+
+
+		document.getElementById("songLyrics").innerHTML = lyrics;
+	}
+
+	$(document).ready(function(){
+	    $("button").click(function(){
+	        var div = $("#rightAnimation");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	    });
+	});
+
+	$(document).ready(function(){
+	    $("button").click(function(){
+	        var div = $("#leftAnimation");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	        div.animate({width: '400px'}, "slow");
+	        div.animate({width: '220px'}, "slow");
+	    });
+	});
+</script>
+
+
+</head>
+<body style="font: 18px Arial; padding: 20px; text-align: center">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 4 - Looping Statements</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Looping Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Employee Gross Pay</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Calculating Compound Interest</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Switch Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part5.html" style="padding: 5px; width: 25%; text-align: left">Part 5</a> - Creating Lists</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part6.html" style="padding: 5px; width: 25%; text-align: left">Part 6</a> - Twelve Days of Christmas</li>
+		</ul>
+	</div>
+	<div id="leftAnimation" style="background:#fff;height:300px;width:220px;position:absolute;left: 80%"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv02LX3jYlI6wSsg8oMlslnVo1N4lOA_TBD2Hkr8X6766vd0--gQ">
+	</div>
+
+	<div id="rightAnimation" style="background:#fff;height:300px;width:220px;position:absolute;right: 80%; direction: rtl""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv02LX3jYlI6wSsg8oMlslnVo1N4lOA_TBD2Hkr8X6766vd0--gQ">
+	</div>
+<div id="salespersonAccounting">
+	<h1>12 Days of Christmas</h1>
+
+	<button id="button" onclick="writeLyrics()">Sing</button>
+	<p id="songLyrics"></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 7 Part 2</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script>
+	var password;
+
+	function checkPassword(){
+		password = document.getElementById("userInput").value;
+		if (password === "obama"){
+			//send to external page
+			window.location.href = 'https://hills.ccsf.edu/~tyin3/cnit133/hw7_part2b.html';
+		} else {
+			//display error message
+			document.getElementById("error").style.display = "block";
+		}
+
+	}
+
+
+	function resetField(){
+
+		var form = document.getElementById("inputForm");
+		form.reset();
+		document.getElementById("error").style.display = "none";
+	}
+
+
+	$(document).ready(function(){
+		$("#inputForm").validate({
+			rules: {
+				state: "required"
+			},
+
+		});
+
+		$(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	});
+
+
+
+
+</script>
+</head>
+<body id="background">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 7 - Object Model and Miscellaneous jQuery</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - className Property</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Password Protection</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Navigation Bar</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - FancyBox</li>
+		</ul>
+	</div>
+
+	<h2>Password Protected Page</h2>
+	<form id="inputForm">
+			<br>
+			<legend class="font">Input password below:</legend>
+				<input id="userInput" type="password" name="passwordInput" value="">
+				<br><br>
+	</form>
+			<button onclick="checkPassword()">Submit</button>
+			<button onclick="resetField()">Reset</button>
+
+	<div id="error" style="color: #ff0000; display:none">password is incorrect</div>
+
+
+
+</body>
+</html>

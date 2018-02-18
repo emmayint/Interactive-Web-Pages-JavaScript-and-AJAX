@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 7 Part 3</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+.dropbtn {
+    color: #000000;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #2B01FF;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script type="text/javascript">
+
+	function stopFunction() {
+			document.getElementById("background").style.backgroundColor = "#9E1C00"
+	}	
+
+	function revertStopFunction() {
+			document.getElementById("background").style.backgroundColor = "#FFFFFF"
+	}
+
+
+ 
+	document.getElementById("stopF").onmouseover=stopFunction
+	document.getElementById("stopF").onmouseout=revertStopFunciton
+
+
+
+
+
+
+	function cautionFunction() {
+			document.getElementById("background").style.backgroundColor = "#F0F70E";
+	}
+
+	function goFunction() {
+			document.getElementById("background").style.backgroundColor = "#009E0C";
+	}
+
+	function noFunction() {
+			document.getElementById("background").style.backgroundColor = "#2B01FF";
+	}
+
+
+
+
+</script>
+</head>
+<body id="background">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+<div id="navigation" style="width:100%; height 20px; background-color:#C4E1F7">
+		<div class="dropdown">
+		  <div class="dropbtn"><a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">Homework 1</a></div>
+		  <div class="dropdown-content">
+
+		  </div>
+		</div>
+		<div class="dropdown">
+		  <div class="dropbtn"><a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part1.html">Homework2</a></div>
+		  <div class="dropdown-content">
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part1.html">Part 1</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part2.html">Part 2</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part3.html">Part 3</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part4.html">Part 3</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/HW2_part4.html">Extra Credit</a>
+		  </div>
+		</div>
+		<div class="dropdown">
+		  <div class="dropbtn"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">Homework 3</a></div>
+		  <div class="dropdown-content">
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">Part 1</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises2.html">Part 2</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises3.html">Part 3</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises4.html">Part 4</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises5.html">Part 5</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/Module-3-Exercises6.html">Part 6</a>
+		  </div>
+		</div>
+		<div class="dropdown">
+		  <div class="dropbtn"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">Homework4</a></div>
+		  <div class="dropdown-content">
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">Part 1</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part2.html">Part 2</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part3.html">Part 3</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part4.html">Part 4</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part5.html">Part 5</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part6.html">Part 6</a>
+		  </div>
+		</div>
+		<div class="dropdown">
+		  <div class="dropbtn"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">Homework5</a></div>
+		  <div class="dropdown-content">
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">Part 1a</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part1b.html">Part 1b</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part2.html">Part 2</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part3.html">Part 3</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part4.html">Part 4</a>
+		  </div>
+		</div>
+		<div class="dropdown">
+		  <div class="dropbtn"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">Homework6</a></div>
+		  <div class="dropdown-content">
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">Part 1</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part2.html">Part 2</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part3.html">Part 3</a>
+		    <a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part4.html">Part 4</a>
+		  </div>
+		</div>
+</div>
+
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 7 - Object Model and Miscellaneous jQuery</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - className Property</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Password Protection</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Navigation Bar</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - FancyBox</li>
+		</ul>
+	</div>
+
+
+</body>
+</html>

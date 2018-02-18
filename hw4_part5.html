@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 4 Part 5</title>
+<style>
+	body{
+		text-align: center;
+	}
+	#salespersonAccounting{
+		text-align:center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #cccccc;
+	}
+	#salespersonInputs{
+		text-align: center;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#salespersonResults{
+		text-align: right;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.resultsColumn1{
+		width: 8%;
+	}
+	.resultsColumn2{
+		width: 8%;
+	}
+	.resultsColumn3{
+		width: 8%;
+	}
+	.resultsColumn4{
+		width: 8%;
+	}
+	.resultsColumn5{
+		width: 8%;
+	}
+	.resultsColumn6{
+		width: 8%;
+	}
+	.resultsColumn7{
+		width: 8%;
+	}
+
+	.inputColumn2 .inputColumn3 {
+		text-align: right;
+	}
+
+	#panel, #flip {
+		width: 60%;
+		padding: 5px;
+		text-align: center;
+		background-color: #e5eecc;
+		border: solid 1px #c3c3c3;
+		margin-left: auto;
+		margin-right: auto; 
+	}
+
+	#panel {
+		display: none;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	var result;
+
+	$(document).ready(function(){
+		$("#flip").click(function(){
+			$("#panel").slideToggle("slow");
+		});
+	});
+
+	function numValidator(x) {
+		if (isNaN(x) || x < 0 ){
+			document.getElementById("error").innerHTML = "Error: " + x + " is not a valid input";
+			return;			
+		}else{
+			return true;
+		}
+	}
+
+
+	function unorderedList() {
+		result = "<ul>";
+		for (i = 1; i < 4; i++) {
+			result = result + "<li>list item " + i + "</li>";
+		}
+		result = result + "</ul>";
+	}
+
+	function orderedNumberList() {
+		result = "<ol>";
+		for (i = 1; i < 4; i++) {
+			result = result + "<li>List item " + i + "</li>";
+		}
+		result = result + "</ol>";
+	}
+
+	function orderedLetterList() {
+		result = "<ol type=\"a\">";
+		for (i = 1; i < 4; i++) {
+			result = result + "<li>List item " + i + "</li>";
+		}
+		result = result + "</ol>";
+	}
+
+	function createList() {
+		var input = document.getElementById("userInput").value;
+
+		switch (input) {
+			case "1": 
+				document.getElementById("title").innerHTML = "Unordered List";
+				unorderedList();
+				document.getElementById("userList").innerHTML = result;
+				break;
+			case "2":
+				document.getElementById("title").innerHTML = "Ordered Number List";
+				orderedNumberList();
+				document.getElementById("userList").innerHTML = result;
+				break;
+			case "3": 
+				document.getElementById("title").innerHTML = "Ordered Letter List";
+				orderedLetterList();
+				document.getElementById("userList").innerHTML = result;
+				break;
+			default:
+				break;		
+		}
+	}
+
+</script>
+
+
+</head>
+<body style="font: 18px Arial; padding: 20px; text-align: center">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 4 - Looping Statements</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Looping Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Employee Gross Pay</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Calculating Compound Interest</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Switch Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part5.html" style="padding: 5px; width: 25%; text-align: left">Part 5</a> - Creating Lists</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part6.html" style="padding: 5px; width: 25%; text-align: left">Part 6</a> - Twelve Days of Christmas</li>
+		</ul>
+	</div>
+<div id="salespersonAccounting">
+	<h1>Creating Lists</h1>
+	<div id="flip">Click to Show/Hide Instructions</div>
+	<div id="panel">
+		Input a number below to create one of the following lists: <br>
+			1 - unordered list<br>
+			2 - ordered number list<br>
+			3 - ordered letter list<br>
+	</div>
+	<br>
+	<div id="salespersonInputs">
+		List Number: <input style="text-align: right" id="userInput"></input><br>
+		<p style="color:red" id="error"></p>
+
+		<button onclick="createList();">Create List</button>
+	</div>
+	<br>
+	<h2 id="title" style="text-align: center; margin-left: auto; margin-right: auto"></h2>
+	<div style="width: 25%; text-align: center; margin-left: auto; margin-right: auto">
+		<div id="userList" style="text-align: center; margin-left: auto; margin-right: auto"><div>
+	</div>
+	<br>
+</div>
+<br>
+</body>
+
+</html>

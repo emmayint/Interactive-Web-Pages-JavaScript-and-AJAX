@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 7 Part 2b</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script type="text/javascript">
+
+	function stopFunction() {
+			document.getElementById("background").style.backgroundColor = "#9E1C00"
+	}	
+
+	function revertStopFunction() {
+			document.getElementById("background").style.backgroundColor = "#FFFFFF"
+	}
+
+
+ 
+	document.getElementById("stopF").onmouseover=stopFunction
+	document.getElementById("stopF").onmouseout=revertStopFunciton
+
+
+
+
+
+
+	function cautionFunction() {
+			document.getElementById("background").style.backgroundColor = "#F0F70E";
+	}
+
+	function goFunction() {
+			document.getElementById("background").style.backgroundColor = "#009E0C";
+	}
+
+	function noFunction() {
+			document.getElementById("background").style.backgroundColor = "#2B01FF";
+	}
+
+
+
+
+</script>
+</head>
+<body id="background">
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 7 - Object Model and Miscellaneous jQuery</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - className Property</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Password Protection</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Navigation Bar</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - FancyBox</li>
+		</ul>
+	</div>
+
+	<div id="stopF" onmouseover="stopFunction()" onmouseout="revertStopFunction()" style="width:50%; height: 50px; background-color:#98C3C8; margin-left: auto; margin-right: auto">STOP</div><br><br>
+
+	<div id="caution" onmouseover="cautionFunction()" onmouseout="revertStopFunction()" style="width:50%; height: 50px; background-color:#98C3C8; margin-left: auto; margin-right: auto">CAUTION</div><br><br>
+
+	<div id="go" onmouseover="goFunction()" onmouseout="revertStopFunction()" style="width:50%; height: 50px; background-color:#98C3C8; margin-left: auto; margin-right: auto">GO</div><br><br>
+
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Module 4 Exercises</title>
+<style>
+	body{
+		text-align: center;
+	}
+
+	#draggable {
+		width: 200px;
+		height: 300px;
+		padding: 0.5em;
+		border: 1px solid #000;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+function forLoop(){
+	var product1 = 5
+	var sum1 = 5
+	for (i = 5; i < 20; i+=3) {
+		var product1 = product1 * (i + 3);
+		var sum1 = sum1 + (i + 3);
+	};
+	document.getElementById("1aProduct").innerHTML = "Part 1a product: " + product1;
+	document.getElementById("1aSum").innerHTML = "Part 1a sum: " + sum1;
+};
+
+function whileLoop(){
+	var x = 3;
+	var product2 = 3;
+	var sum2 = 3;
+	while (x < 31){
+		var product2 = product2 * (x + 4);
+		var sum2 = sum2 + (x + 4);
+		var x = x + 4;
+	};
+	document.getElementById("1bProduct").innerHTML = "Part 1b product: " + product2;
+	document.getElementById("1bSum").innerHTML = "Part 1b sum: " + sum2;
+
+};
+
+$( function() {
+	$( "#draggable" ).draggable();
+} );
+
+</script>
+
+
+</head>
+<body>
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 4 - Looping Statements</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Looping Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Employee Gross Pay</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Calculating Compound Interest</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - Switch Statements</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part5.html" style="padding: 5px; width: 25%; text-align: left">Part 5</a> - Creating Lists</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4_part6.html" style="padding: 5px; width: 25%; text-align: left">Part 6</a> - Twelve Days of Christmas</li>
+		</ul>
+	</div>
+	<button onclick="forLoop()">for Loop</button>
+	<br>
+	<button onclick="whileLoop()">while Loop</button>
+
+	<div id="draggable" class="ui-widget-content">
+		<p>Drag me around</p>
+		<p id="1aProduct"></p>
+		<p id="1aSum"></p>
+		<p id="1bProduct"></p>
+		<p id="1bSum"></p>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 6 Part 3</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script>
+
+	$(document).ready(function() {
+		var currentDay = new Date();
+
+		document.getElementById("a").innerHTML = currentDay.toString();
+		document.getElementById("b").innerHTML = currentDay.toLocaleString();
+		document.getElementById("c").innerHTML = currentDay.toUTCString();
+		document.getElementById("d").innerHTML = (currentDay.getTimezoneOffset())/60; 
+		document.getElementById("e").innerHTML = ((currentDay.getTimezoneOffset())/60)-3;
+
+	  $(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	});
+
+	var charCounter = 0;
+	
+
+	function stateChecker(){
+		$("#myForm").validate({
+		// Rules for each input item
+		rules: 
+		{
+		numberInput: { required: true},
+		}
+		}); 
+
+		var str = document.getElementById("userInput").value;
+		var fields = str.split(" ");
+
+		var areaCode = fields[0];
+
+		var phoneNumber = fields[1];
+
+		var phoneSplit = phoneNumber.split("-");
+		var firstThree = phoneSplit[0];
+		var lastFour = phoneSplit[1];
+
+		document.getElementById("f").innerHTML = areaCode;
+		document.getElementById("g").innerHTML = firstThree;
+		document.getElementById("h").innerHTML = lastFour;
+
+		document.getElementById("i").innerHTML = areaCode;
+		document.getElementById("j").innerHTML = firstThree;
+		document.getElementById("k").innerHTML = lastFour;
+
+	}
+
+
+
+
+</script>
+</head>
+<body>
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 6 - Objects</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html" style="padding: 5px; width: 25%; text-align: left">Part 1</a> - Math Object Methods</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - String Method - charAt</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Date Object</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - String Method - indexOf</li>
+		</ul>
+	</div>
+	<br>
+	<table style="width:70%; text-align: center; margin-left: auto; margin-right: auto">
+		<tr>
+			<td style="width: 40%">toString():</td>
+			<td id="a" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">toLocaleString():</td>
+			<td id="b" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">toUTCString():</td>
+			<td id="c" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">Difference between PST and UTC (in hours):</td>
+			<td id="d" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">Difference between EST and UTC (in hours):</td>
+			<td id="e" style="width: 40%"></td>
+		</tr>
+	</table>
+	<div>
+		<p id="error" style="display: none; color: #ff0000">Please enter a different number</p>
+	</div>
+
+
+	<br>
+	<form id="myForm" onSubmit="stateChecker()">
+	<label for="userInput">Please enter a phone number in the format (###) ###-####:</label><br>
+	<input id="userInput" name="numberInput" minlenghth="10" maxlength="20" placeholder="(xxx) xxx-xxxx" required><br>
+	</form>
+	<button onclick="stateChecker()">click me</button>
+	<br>
+
+	<br>
+
+	<p><span id="f"></span> <span id="g"></span>-<span id="h"></span></p>
+	<br>
+	Area Code: <span id="i"></span>
+	<br>
+	First 3 #'s: <span id="j"></span>
+	<br>
+	Last 4 #'s: <span id="k"></span>
+
+
+</body>
+</html>

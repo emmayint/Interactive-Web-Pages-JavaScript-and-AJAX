@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 5 Part 3</title>
+<style>
+	body{
+		text-align: center;
+		font: 18px Arial;
+		padding: 20px;
+		text-align: center;
+	}
+	#validationForm{
+		background-color: #d3d3d3;
+		width: 60%;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script>
+
+	$(document).ready(function() {
+	  $(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+	      event.preventDefault();
+	      return false;
+	    }
+	  });
+	});
+
+	var commissionArray = [0,0,0,0,0,0,0,0,0];
+	
+
+	function stateChecker() {
+		$("#myForm").validate({
+		// Rules for each input item
+		rules: 
+		{
+		numberInput: { required: true, number: true, min: 0}
+
+		}
+		}); 
+
+		if ($("#myForm").valid()) {
+
+
+		var input = 200 + (.09 * (parseInt(document.getElementById("userInput").value)));
+		if (input <= 299.99){
+			commissionArray[0] = commissionArray[0] + 1;
+		} else if (300 <= input && input <= 399.99){
+			commissionArray[1] = commissionArray[1] + 1;
+		} else if (400 <= input && input <= 499.99){
+			commissionArray[2] = commissionArray[2] + 1;
+		} else if (500 <= input && input <= 599.99){
+			commissionArray[3] = commissionArray[3] + 1;
+		} else if (600 <= input && input <= 699.99){
+			commissionArray[4] = commissionArray[4] + 1;
+		} else if (700 <= input && input <= 799.99){
+			commissionArray[5] = commissionArray[5] + 1;
+		} else if (800 <= input && input <= 899.99){
+			commissionArray[6] = commissionArray[6] + 1;
+		} else if (900 <= input && input <= 999.99){
+			commissionArray[7] = commissionArray[7] + 1;
+		} else {
+			commissionArray[8] = commissionArray[8] + 1;
+		}
+
+
+
+		document.getElementById("a").innerHTML = commissionArray[0];
+		document.getElementById("b").innerHTML = commissionArray[1];
+		document.getElementById("c").innerHTML = commissionArray[2];
+		document.getElementById("d").innerHTML = commissionArray[3];
+		document.getElementById("e").innerHTML = commissionArray[4];
+		document.getElementById("f").innerHTML = commissionArray[5];
+		document.getElementById("g").innerHTML = commissionArray[6];
+		document.getElementById("h").innerHTML = commissionArray[7];
+		document.getElementById("i").innerHTML = commissionArray[8];
+	}
+	}
+
+
+
+</script>
+</head>
+<body>
+	<div style="background-color:#99d5cf">
+		<nav>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/index.html">HW1</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/CNIT_133_HW_2.html">HW2</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw3.html">HW3</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw4.html">HW4</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html">HW5</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw6.html">HW6</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw7.html">HW7</a>
+			<a href="https://hills.ccsf.edu/~tyin3/cnit133/hw8.html">HW8</a>
+		</nav>
+	</div>
+	<br>
+	<div style="align-content:center; border-width: 1px">
+		<h2>Homework 5 - Arrays</h2>
+		<ul style="list-style: none; width: 35%; text-align: left; margin-left: auto; margin-right: auto">
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5.html" style="padding: 5px; width: 25%; text-align: left">Part 1a</a> - Form Validation</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part1b.html" style="padding: 5px; width: 25%; text-align: left">Part 1b</a> - Event Handlers</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part2.html" style="padding: 5px; width: 25%; text-align: left">Part 2</a> - Two-Dimensional Census Data</li>
+			<li class="dark"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part3.html" style="padding: 5px; width: 25%; text-align: left">Part 3</a> - Array of Counters</li>
+			<li class="light"><a href="https://hills.ccsf.edu/~tyin3/cnit133/hw5_part4.html" style="padding: 5px; width: 25%; text-align: left">Part 4</a> - One-Dimensional array for counting</li>
+		</ul>
+	</div>
+	<br>
+	<form id="myForm">
+	<input id="userInput" name="numberInput">
+	</form>
+	<button onclick="stateChecker()" id="enterUserInput">Enter a salesperson's gross sales</button>
+	<br>
+	<br>
+	<table style="width:50%; text-align: center; margin-left: auto; margin-right: auto">
+		<tr>
+			<th style="width: 40%">Salary</th>
+			<th style="width: 40%"># of Employees</th>
+		</tr>
+		<tr>
+			<td style="width: 40%">$200.00 - 299.99</td>
+			<td id="a" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">$300.00 - 399.99</td>
+			<td id="b" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">$400.00 - 499.99</td>
+			<td id="c" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">$500.00 - 599.99</td>
+			<td id="d" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">$600.00 - 699.99</td>
+			<td id="e" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">$700.00 - 799.99</td>
+			<td id="f" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">$800.00 - 899.99</td>
+			<td id="g" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">$900.00 - 999.99</td>
+			<td id="h" style="width: 40%"></td>
+		</tr>
+		<tr>
+			<td style="width: 40%">$1000 and over</td>
+			<td id="i" style="width: 40%"></td>
+		</tr>
+	</table>
+	<div id="counter"></div>
+
+
+
+</body>
+</html>
